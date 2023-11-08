@@ -63,7 +63,7 @@ public class View {
         JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new BorderLayout());
 
-        JLabel titleLabel = new JLabel("Logs");
+        JLabel titleLabel = new JLabel("Map");
         titleLabel.setOpaque(true);
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
         titleLabel.setBorder(new LineBorder(Color.BLACK, 1));
