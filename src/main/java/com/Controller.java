@@ -1,5 +1,7 @@
-import models.Model;
-import views.View;
+package main.java.com;
+
+import main.java.com.models.Model;
+import main.java.com.views.View;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The Controller class handles user interactions and coordinates between the Model and View.
+ * The main.java.com.Controller class handles user interactions and coordinates between the Model and View.
  */
 public class Controller implements ActionListener {
 
@@ -19,7 +21,7 @@ public class Controller implements ActionListener {
     private final List<Worker> activeWorkers;
 
     /**
-     * Constructs a new Controller instance.
+     * Constructs a new main.java.com.Controller instance.
      *
      * @param view  The View component of the application.
      * @param model The Model component of the application.
@@ -77,5 +79,17 @@ public class Controller implements ActionListener {
             }
         }
         activeWorkers.clear();
+    }
+
+    public View getView() {
+        return view;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public List<Worker> getActiveWorkers() {
+        return activeWorkers;
     }
 }

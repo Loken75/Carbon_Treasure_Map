@@ -1,4 +1,4 @@
-package entities;
+package main.java.com.entities;
 
 import java.util.HashMap;
 
@@ -27,15 +27,6 @@ public class Tile {
         this.yPos = yPos;
         this.tileType = TileType.PLAIN;
         this.treasureCount = 0;
-    }
-
-    public void setTreasureCount(int treasureCount) {
-        this.tileType = TileType.TREASURE;
-        this.treasureCount = treasureCount;
-    }
-
-    public TileType getTileType() {
-        return tileType;
     }
 
     @Override
@@ -76,5 +67,21 @@ public class Tile {
 
     public void setAdventurerName(String adventurerName) {
         this.adventurerName = adventurerName;
+    }
+
+    public boolean isAdventurer() {
+        return adventurer;
+    }
+
+    public void setTreasureCount(int treasureCount) {
+        this.treasureCount = treasureCount;
+    }
+
+    public TileType getTileType() {
+        return tileType;
+    }
+
+    public String getAdventurerName() {
+        return adventurerName;
     }
 }

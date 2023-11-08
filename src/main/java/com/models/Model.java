@@ -1,16 +1,16 @@
-package models;
+package main.java.com.models;
 
-import entities.Adventurer;
-import entities.Map;
-import tools.FileManager;
+import main.java.com.entities.Adventurer;
+import main.java.com.entities.Map;
+import main.java.com.FileManager;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Model {
-    private final File inputFile = new File("resources/input.txt");
-    private final File outputFile = new File("resources/output.txt");
+    public static File inputFile = new File("resources/input.txt");
+    public static File outputFile = new File("resources/output.txt");
     private final Map map;
     private final List<Adventurer> adventurers;
 
@@ -36,4 +36,9 @@ public class Model {
     public File getOutputFile() {
         return outputFile;
     }
+
+    public void setInputFile(File inputFile) {
+        Model.inputFile = inputFile;
+    }
+
 }

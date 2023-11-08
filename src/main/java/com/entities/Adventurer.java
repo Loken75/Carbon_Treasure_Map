@@ -1,4 +1,4 @@
-package entities;
+package main.java.com.entities;
 
 import java.util.List;
 
@@ -34,17 +34,24 @@ public class Adventurer {
         this.xPos = xPos;
         this.yPos = yPos;
         this.orientation = orientation;
+        this.movements = getMovementsFromString(movementSequence);
+    }
 
-        movements = new Movement[movementSequence.length()];
-        for (int i = 0; i < movementSequence.length(); i++) {
-            char moveChar = movementSequence.charAt(i);
-            movements[i] = switch (moveChar) {
-                case 'A' -> Movement.FORWARD;
-                case 'G' -> Movement.LEFT;
-                case 'D' -> Movement.RIGHT;
-                default -> null;
-            };
+    public static Movement[] getMovementsFromString(String txt) {
+        Movement[] movements = new Movement[txt.length()];
+        for (int i = 0; i < txt.length(); i++) {
+            if (txt.charAt(i) == 'A') {
+                movements[i] = Movement.FORWARD;
+            } else if (txt.charAt(i) == 'G') {
+                movements[i] = Movement.LEFT;
+            } else if (txt.charAt(i) == 'D') {
+                movements[i] = Movement.RIGHT;
+            } else {
+                System.out.println("Error: invalid movement sequence!");
+                return null;
+            }
         }
+        return movements;
     }
 
     /**

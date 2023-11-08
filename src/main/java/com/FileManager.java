@@ -1,8 +1,8 @@
-package tools;
+package main.java.com;
 
-import entities.Adventurer;
-import entities.Map;
-import entities.Tile;
+import main.java.com.entities.Adventurer;
+import main.java.com.entities.Map;
+import main.java.com.entities.Tile;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -62,6 +62,7 @@ public class FileManager {
         int treasureCount = Integer.parseInt(parts[3]);
         Tile tile = map.getTile(xPos, yPos);
         if (tile.getTileType() == Tile.TileType.PLAIN) {
+            tile.setTileType(Tile.TileType.TREASURE);
             tile.setTreasureCount(treasureCount);
         }
     }

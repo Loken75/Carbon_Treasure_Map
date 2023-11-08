@@ -1,7 +1,8 @@
-import entities.Adventurer;
-import models.Model;
-import tools.FileManager;
-import views.View;
+package main.java.com;
+
+import main.java.com.entities.Adventurer;
+import main.java.com.models.Model;
+import main.java.com.views.View;
 
 import javax.swing.*;
 import java.util.List;
@@ -34,7 +35,7 @@ public class Worker extends SwingWorker<Void, String> {
         view.updateMap(model.getMap().getTiles());
     }
 
-    private void processAdventurerMovements(Adventurer adventurer) throws InterruptedException {
+    public void processAdventurerMovements(Adventurer adventurer) throws InterruptedException {
         for (Adventurer.Movement movement : adventurer.getMovements()) {
             logAdventurerMovement(adventurer, movement);
             adventurer.runAction(movement, model.getMap());

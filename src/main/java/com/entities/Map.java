@@ -1,4 +1,4 @@
-package entities;
+package main.java.com.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,14 @@ public class Map {
 
     private int width;
     private int height;
-    private final List<Tile> tiles;
+    private List<Tile> tiles;
 
     public Map() {
         tiles = new ArrayList<>();
+    }
+
+    public int getSize() {
+        return width*height;
     }
 
     /**
@@ -33,12 +37,29 @@ public class Map {
      * @return The tile at the specified position, or null if it does not exist.
      */
     public Tile getTile(int xPos, int yPos) {
-        int index = yPos * width + xPos;
+        /*int index = yPos * width + xPos;
         if (index >= 0 && index < tiles.size()) {
             return tiles.get(index);
         } else {
             return null;
+        }*/
+        for (Tile tile : getTiles()) {
+            if (tile.getxPos() == xPos && tile.getyPos() == yPos) {
+                return tile;
+            }
         }
+        return null;
+    }
+
+    public int getTileIndex(int xPos, int yPos) {
+        int index  = 0;
+        for (Tile tile : getTiles()) {
+            if (tile.getxPos() == xPos && tile.getyPos() == yPos) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 
     /**
@@ -73,5 +94,9 @@ public class Map {
 
     public List<Tile> getTiles() {
         return tiles;
+    }
+
+    public void setTiles(List<Tile> tiles) {
+        this.tiles = tiles;
     }
 }

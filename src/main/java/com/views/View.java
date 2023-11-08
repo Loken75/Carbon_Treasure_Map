@@ -1,6 +1,6 @@
-package views;
+package main.java.com.views;
 
-import entities.Tile;
+import main.java.com.entities.Tile;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -141,7 +141,13 @@ public class View {
     public void initializeMap(int width, int height, List<Tile> mapsTiles) {
         mapButtons = new ArrayList<>();
 
-        if (width * height != mapsTiles.size()) {
+        int mapSize;
+        if (width == 0 || height == 0) {
+            mapSize = width + height; // If 1D map
+        } else {
+            mapSize = width * height;
+        }
+        if (mapSize != mapsTiles.size()) {
             return;
         }
 
@@ -161,6 +167,9 @@ public class View {
      * @param mapTiles The list of map tiles to update the display with.
      */
     public void updateMap(List<Tile> mapTiles) {
+        if (mapButtons == null) {
+            mapButtons = new ArrayList<>();
+        }
         for (int i = 0; i < mapTiles.size(); i++) {
             mapButtons.get(i).setText(mapTiles.get(i).toString());
         }
@@ -193,5 +202,17 @@ public class View {
 
     public JMenuItem getOutputFileMenuItem() {
         return outputFileMenuItem;
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public JPanel getMapPanel() {
+        return mapPanel;
+    }
+
+    public List<JButton> getMapButtons() {
+        return mapButtons;
     }
 }
