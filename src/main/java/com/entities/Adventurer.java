@@ -85,7 +85,7 @@ public class Adventurer {
         Tile previousTile = map.getTile(xPos, yPos);
         Tile destTile = map.getTile(destX, destY);
 
-        if (destTile.getTileType() != Tile.TileType.MOUNTAIN) {
+        if (destTile.getTileType() != Tile.TileType.MOUNTAIN && !destTile.isAdventurer()) {
             xPos = destX;
             yPos = destY;
             previousTile.setAdventurer(false);
