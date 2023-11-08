@@ -10,7 +10,7 @@ public class Map {
 
     private int width;
     private int height;
-    private List<Tile> tiles;
+    private final List<Tile> tiles;
 
     public Map() {
         tiles = new ArrayList<>();

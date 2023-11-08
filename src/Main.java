@@ -1,5 +1,10 @@
+import models.Model;
+import views.View;
+
 public class Main {
     public static void main(String[] args) {
-        new Model();
+        View view = new View();
+        Model model = new Model();
+        new Controller(view, model);
     }
 }

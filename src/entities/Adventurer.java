@@ -52,13 +52,11 @@ public class Adventurer {
      *
      * @param map The map on which the adventurer is moving.
      */
-    public void runActions(Map map) {
-        for (Movement movement : movements) {
-            switch (movement) {
-                case FORWARD -> forwardAction(map);
-                case LEFT -> leftAction();
-                case RIGHT -> rightAction();
-            }
+    public void runAction(Movement movement, Map map) {
+        switch (movement) {
+            case FORWARD -> forwardAction(map);
+            case LEFT -> leftAction();
+            case RIGHT -> rightAction();
         }
     }
 
@@ -154,5 +152,9 @@ public class Adventurer {
 
     public char getOrientation() {
         return orientation;
+    }
+
+    public Movement[] getMovements() {
+        return movements;
     }
 }

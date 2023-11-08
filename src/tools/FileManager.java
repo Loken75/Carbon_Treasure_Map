@@ -1,3 +1,5 @@
+package tools;
+
 import entities.Adventurer;
 import entities.Map;
 import entities.Tile;
@@ -9,6 +11,9 @@ import java.util.List;
 public class FileManager {
 
     public static void loadMap(File file, Map map, List<Adventurer> adventurers) {
+
+        map.getTiles().clear();
+        adventurers.clear();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -35,9 +40,10 @@ public class FileManager {
         int height = Integer.parseInt(parts[2]);
         map.setWidth(width);
         map.setHeight(height);
-        for (int heightIndex = 0; heightIndex < height; heightIndex++) {
-            for (int widthIndex = 0; widthIndex < width; widthIndex++) {
-                map.addTile(new Tile(widthIndex, heightIndex));
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                map.addTile(new Tile(x, y));
             }
         }
     }
